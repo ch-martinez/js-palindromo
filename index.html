@@ -4,10 +4,20 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Palindromo</title>
   </head>
-  <body>
-    <div id="app"></div>
+  <body>    
+      <form class="form" id="form" action="">
+        <h2 class="title">¿Es palindromo?</h2>
+
+        <div class="form__container">
+          <input class="form__item form__input" type="text" name="" id="input" placeholder="Ingrese una palabra">
+          <button class="form__item  form__button" type="submit" id="button">Verificar</button>
+        </div>
+
+        <div class="form__container form__message" id="message"></div>
+      </form>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
