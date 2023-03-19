@@ -1,11 +1,10 @@
-import './style.css'
-
 const input = document.getElementById('input')
 const button = document.getElementById('button')
 const message = document.getElementById('message')
+const form = document.getElementById('form')
 
-const esPalindromo = () => {
-    const palabra = input.value.trim().toLowerCase()
+const esPalindromo = (p) => {
+    const palabra = p.toLowerCase()
     let invertida = ''
     for(let letra of palabra){
         invertida = letra + invertida
@@ -13,23 +12,32 @@ const esPalindromo = () => {
     return invertida == palabra
 }
 
-const alertaPalindromo = () => {
-    if (input.value.trim() == '') {
-        message.textContent = ''
-        return
-    }
-    if (esPalindromo()) {
-        message.classList.add("palindromo")
-        message.classList.remove("no_palindromo")
-        message.textContent = "PALINDROMO"
+const pintarResultadoPalindromo = () => {
+    const palabra = input.value.trim()
+
+    if (esPalindromo(palabra)) {
+        message.classList.replace("no_palindromo", "palindromo")
+        message.textContent = `${palabra} es palindromo`
     } else {
-        message.classList.add("no_palindromo")
-        message.classList.remove("palindromo")
-        message.textContent = "NO ES PALINDROMO"
+        message.classList.replace("palindromo","palindromo")
+        message.textContent = `${palabra} no es palindromo`
     }
+    button.textContent = "Continuar"
+    input.classList.toggle("hide")
+    message.classList.toggle("hide")
 }
 
-button.addEventListener('click', (e) =>{
+button.addEventListener('click', (e) => {
     e.preventDefault()
-    alertaPalindromo()
+
+    if (input.classList.contains("hide")){
+        input.classList.toggle("hide")
+        message.classList.toggle("hide")
+        button.textContent = "Verificar"
+        form.reset()
+    } else {
+        if (input.value.trim() != '') {
+            pintarResultadoPalindromo()
+        }
+    }
 })

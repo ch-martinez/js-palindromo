@@ -9,14 +9,13 @@
   </head>
   <body>    
       <form class="form" id="form" action="">
-        <h2 class="title">¿Es palindromo?</h2>
+        <h1 class="form__item title">¿Es palindromo?</h1>
 
-        <div class="form__container">
-          <input class="form__item form__input" type="text" name="" id="input" placeholder="Ingrese una palabra">
-          <button class="form__item  form__button" type="submit" id="button">Verificar</button>
-        </div>
+        <input class="form__item form__input" type="text" name="" id="input" placeholder="Ingrese una palabra">
+        <div class="form__item form__container form__message no_palindromo hide" id="message"></div>
+        
+        <button class="form__item  form__button" type="submit" id="button">Verificar</button>
 
-        <div class="form__container form__message" id="message"></div>
       </form>
     <script type="module" src="/main.js"></script>
   </body>
